@@ -69,26 +69,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Setup terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
  
     - name: terraform Init
       id: init
       run: terraform init
       working-directory: ${{ env.ROOT_PATH }}
 
-    - name: terraform Init
-      run: echo 'var -> ${{inputs.tf_destroy}}'
-      id: init2
-      working-directory: ${{ env.ROOT_PATH }}
-
     - name: terraform Apply
       run: terraform apply -auto-approve
       id: apply
-      if: ${{inputs.tf_destroy}} == false
+#    #  if: ${{inputs.tf_destroy}} == false
       working-directory: ${{ env.ROOT_PATH }}
 
     # - name: terraform destroy
