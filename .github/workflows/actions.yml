@@ -68,14 +68,8 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
- 
-    - name: Setup terraform
-      uses: hashicorp/setup-terraform@v1
-      #secrets.TF_API_TOKEN is built in variables
-      with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
- 
+      uses: actions/checkout@v2 
+   
     - name: terraform Init
       id: init
       run: terraform init
