@@ -5,7 +5,7 @@ variable "prefix" {
  
 variable "resource_group_name" {
   description = "The name of the Resource Group."
-  default     = "rg-${prefix}-zerobig"
+  default     = "rg-gav2022kr-zerobig"
 }
  
 variable "location" {
