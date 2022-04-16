@@ -55,10 +55,21 @@ jobs:
       id: plan    
       run: terraform plan   
       working-directory: ${{ env.ROOT_PATH }}
+
+    - name: Terraform Show
+      id: show    
+      run: terraform show -json main.tfplan > main.tfplan.json   
+
+    - name: terraform-compliance
+      id: compliance
+      uses: docker://eerkunt/terraform-compliance
+      with:
+        args: -f compliance-testing/src/features -p main.tfplan.json      
       
   terraform_apply:
     name: 'terraform apply'
     needs: [terraform]
+    environment: DEV
     runs-on: ubuntu-latest
     
     defaults:
