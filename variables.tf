@@ -1,16 +1,31 @@
 variable "prefix" {
   description = "This prefix will be included in the name of some resources."
-  default     = "bgzbtf"
+  default     = "gav2022kr"
 }
  
 variable "resource_group_name" {
   description = "The name of the Resource Group."
-  default     = "rg-gav2022-tf-zerobig"
+  default     = "rg-${prefix}-zerobig"
 }
  
 variable "location" {
   description = "The region where the resoruces are provisoned."
   default     = "koreacentral"
+}
+
+variable "kv_rgname" {
+  description = "Azure Key Valut RG name"
+  default     = "rg-gav2022-zerobig"
+}
+ 
+variable "kv_name" {
+  description = "Azure Key Valut name"
+  default     = "kv4gav2022-zero"
+}
+
+variable "kv_secretname" {
+  description = "Azure Key Valut Secret name"
+  default     = "pw4gavdemo"
 }
  
 variable "virtual_network_name" {
@@ -67,25 +82,3 @@ variable "admin_username" {
   description = "Administrator user name"
   default     = "zerobig"
 }
- 
-variable "kv_name" {
-  description = "Azure Key Valut name"
-  default     = "kv4gav2022-zero"
-}
- 
-variable "kv_rgname" {
-  description = "Azure Key Valut RG name"
-  default     = "rg-gav2022-zerobig"
-}
- 
-variable "kv_secretname" {
-  description = "Azure Key Valut Secret name"
-  default     = "pw4gavdemo"
-}
- 
-/*
-variable "admin_password" {
-  description = "Administrator password"
-  default     = ""
-}
-*/

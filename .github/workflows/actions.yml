@@ -33,7 +33,6 @@ jobs:
 
     - name: Setup terraform
       uses: hashicorp/setup-terraform@v1
-      #secrets.TF_API_TOKEN is built in variables
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
@@ -78,7 +77,6 @@ jobs:
     - name: terraform Apply
       run: terraform apply -auto-approve
       id: apply
-#    #  if: ${{inputs.tf_destroy}} == false
       working-directory: ${{ env.ROOT_PATH }}
 
     # - name: terraform destroy
